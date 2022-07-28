@@ -1,0 +1,31 @@
+<article class="postcard light red mx-3">
+  <a class="postcard__img_link">
+    <img
+      class="postcard__img"
+      src="<%- stock.property.images[0].image %>"
+      alt="Property Image"
+    />
+  </a>
+  <div class="postcard__text t-dark">
+    <h1 class="postcard__title red">
+      <a href="/properties/<%- stock.property.id %>"><%- stock.property.name %></a>
+    </h1>
+    <div class="postcard__subtitle small"></div>
+    <div class="postcard__bar"></div>
+    <div class="postcard__preview-txt d-flex flex-column">
+      <div class="row pt-2">
+        <%- include('./userStockCardRow', { title: 'Description', value: stock.property.description }) %>
+        <%- include('./userStockCardRow', { title: 'Property Price', value: stock.property.price.toFixed(2) + ' ( STX )' }) %>
+        <%- include('./userStockCardRow', { title: 'User stocks', value: stock.stocksCount + ' / ' + stock.property.fractions }) %>
+        <%- include('./userStockCardRow', { title: 'User Stocks Worth', value: (stock.stocksCount * (stock.property.price / stock.property.fractions)).toFixed(2) + ' ( STX )' }) %>
+        <button id="purchaseFractionsButton<%- stock.id %>" class="btn btn-outline-secondary mt-2 hidden-form">+ Buy Stock</button>
+        <form id="purchaseFractionsForm<%- stock.id %>" class="mt-2 d-none">
+          <div class="input-group mb-3">
+            <input type="number" class="form-control" name="fractionsCountToPurchase" min="1" max="<%- stock.value %>" placeholder="Fractions to buy" aria-label="Fractions to buy" aria-describedby="button-addon2">
+            <button class="btn btn-outline-primary" type="submit" id="button-addon2">buy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</article>

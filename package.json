@@ -1,0 +1,32 @@
+{
+  "name": "marketplace_fractionalizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js -e js,ejs",
+    "build-submitProperty": "browserify src/front-scripts/submitProperty.js -o public/scripts/submitProperty.js",
+    "build-property": "browserify src/front-scripts/property.js -o public/scripts/property.js",
+    "build-profile": "browserify src/front-scripts/profile.js -o public/scripts/profile.js",
+    "build-publicProfile": "browserify src/front-scripts/publicProfile.js -o public/scripts/publicProfile.js"
+  },
+  "dependencies": {
+    "@stacks/connect": "^6.9.1",
+    "@stacks/network": "^4.3.2",
+    "@stacks/transactions": "^4.3.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "browserify": "^17.0.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.4.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.18",
+    "regenerator-runtime": "^0.13.9",
+    "sha256": "^0.2.0"
+  }
+}

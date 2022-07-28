@@ -1,0 +1,26 @@
+<article class="postcard light red mx-3">
+  <a class="postcard__img_link">
+    <img
+      class="postcard__img"
+      src="<%- stock.property.images[0].image %>"
+      alt="Property Image"
+    />
+  </a>
+  <div class="postcard__text t-dark">
+    <h1 class="postcard__title red">
+      <a href="/properties/<%- stock.property.id %>"><%- stock.property.name %></a>
+    </h1>
+    <div class="postcard__subtitle small"></div>
+    <div class="postcard__bar"></div>
+    <div class="postcard__preview-txt d-flex flex-column">
+      <div class="row pt-2">
+        <%- include('./userStockCardRow', { title: 'Description', value: stock.property.description }) %>
+        <%- include('./userStockCardRow', { title: 'Property Price', value: stock.property.price.toFixed(2) + ' ( STX )' }) %>
+        <%- include('./userStockCardRow', { title: 'Address' , value: stock.address }) %>
+        <%- include('./userStockCardRow', { title: 'Your stocks', value: stock.stocksCount + ' / ' + stock.property.fractions }) %>
+        <%- include('./userStockCardRow', { title: 'Your Stocks Worth', value: (stock.stocksCount * (stock.property.price / stock.property.fractions)).toFixed(2) + ' ( STX )' }) %>
+        <button id="unlistFractions<%- stock.id %>" class="btn btn-outline-danger mt-2 hidden-form">Unlist fractions</button>
+      </div>
+    </div>
+  </div>
+</article>

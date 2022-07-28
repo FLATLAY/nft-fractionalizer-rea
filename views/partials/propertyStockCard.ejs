@@ -1,0 +1,15 @@
+<tr d="d-flex justify-content-center align-items-center">
+  <td>
+    <div class="d-flex align-items-center">
+      <img class="circle-img me-4" src="<%= user.image %>" />
+      <div class="user-info__basic">
+        <a href="/users/<%= user.username %>" class="custom-link">
+          <h5 class="mb-0"><%- user.fullname %></h5>
+        </a>
+        <p class="text-muted mb-0">@<%- user.username %></p>
+      </div>
+    </div>
+  </td>
+  <td><h4 class="pe-2 h5"><%- user.stocksCount %></h4></td>
+  <td><h4 class="pe-2 h5"><%- user.stocksValue %> <span style="font-weight: 800">( STX )</span></h4></td>
+</tr>

@@ -1,0 +1,43 @@
+<div
+  id="propertyImagesCarousel"
+  class="carousel carousel slide"
+  data-bs-ride="carousel"
+>
+  <div id="propertyImages" class="carousel-inner">
+    <% if (images) { %> <% for (let i = 0; i < images.length; i++) { %>
+      <% if (!i) { %>
+        <div class="carousel-item active">
+      <% } else { %>
+        <div class="carousel-item">
+      <% } %>
+      <img src="<%- images[i] %> " class="d-block w-100" style="height: 400px; width: 100%;" alt="..." />
+    </div>
+    <% } %> <% } else { %>
+    <div class="carousel-item active">
+      <img src="/images/property_vector.png" class="d-block w-100" alt="..." />
+    </div>
+    <% } %>
+  </div>
+  <button
+    id="carousel-prev-button"
+    class="carousel-control-prev pe-5"
+    type="button"
+    data-bs-target="#propertyImagesCarousel"
+    data-bs-slide="prev"
+    disabled
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    id="carousel-next-button"
+    class="carousel-control-next ps-5"
+    type="button"
+    data-bs-target="#propertyImagesCarousel"
+    data-bs-slide="next"
+    disabled
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

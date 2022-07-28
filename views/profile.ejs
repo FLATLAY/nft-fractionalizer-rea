@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/user_stocks_card.css" />
+    <script src="/scripts/bootstrap/bootstrap.min.js" defer></script>
+    <script src="/scripts/bootstrap/jquery.js" defer></script>
+    <script src="/scripts/utilities.js" defer></script>
+    <script src="/scripts/profile.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <title>User</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container-fluid d-flex flex-column pt-5">
+      <!-- header -->
+      <div class="row">
+        <div class="col custom-header-container">
+          <h1 class="header">Profile</h1>
+          <h3 class="sub-header">Detailed information about your account.</h3>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div class="row custom-header-container">
+        <div class="row container-fluid">
+          <div class="col-lg-4 my-auto">
+            <div class="card custom-card mb-1">
+              <div class="card-body text-center">
+                <img
+                  src="<%- user.image %>"
+                  alt="avatar"
+                  class="rounded-circle img-fluid"
+                  style="width: 150px; height: 150px; object-fit: cover"
+                />
+                <h3 class="lobster-font mt-3 mb-1"><%- user.fullname %></h3>
+              </div>
+            </div>
+            <div
+              class="container d-flex justify-content-center align-items-center"
+            >
+              <!-- EDIT USER INFO -->
+              <a
+                href="/users/profile/edit"
+                alt="Edit user info"
+                class="mx-2 profile-actions-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-info-circle"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                  />
+                  <path
+                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                  />
+                </svg>
+              </a>
+
+              <!-- NEW PROPERTY -->
+              <a
+                href="/properties/submit"
+                alt="Submit new property"
+                class="mx-2 profile-actions-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-file-plus"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"
+                  />
+                  <path
+                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"
+                  />
+                </svg>
+              </a>
+
+              <!-- REQUESTS -->
+              <a
+                href="/users/profile/requests"
+                alt="Requests"
+                class="mx-2 profile-actions-icon position-relative"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-inbox"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"
+                  />
+                </svg>
+                <span
+                  class="position-absolute top-0 start-75 translate-middle badge rounded-pill bg-danger"
+                >
+                  <%- user.pendingRequests %>
+                  <span class="visually-hidden">requests available .</span>
+                </span>
+              </a>
+
+              <!-- LOGOUT -->
+              <a
+                id="logoutButton"
+                alt="Logout"
+                class="mx-2 profile-actions-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-box-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card custom-card mb-4">
+              <div class="card-body">
+                <!-- Username -->
+                <div class="row mt-4">
+                  <div class="col-sm-3">
+                    <p class="text-muted mb-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-at me-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                        />
+                      </svg>
+                      <span>Username</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="mb-0 bold-text">
+                      <span><%- user.username %></span>
+                    </p>
+                  </div>
+                </div>
+                <hr class="custom-hr" />
+
+                <!-- Address -->
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="text-muted mb-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-wallet2 me-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"
+                        />
+                      </svg>
+                      <span>Address</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="mb-0 bold-text">
+                      <% if(user.address) { %> <%= user.address %> <% } else {
+                      %>
+                      <a href="/users/profile/edit">Add new One</a>
+                      <% } %>
+                    </p>
+                    <small class="text-muted" style="color: #f5654c">! This address will be used for transactions. you can change it in profile edit section.</small>
+                  </div>
+                </div>
+                <hr class="custom-hr" />
+
+                <!-- Balance -->
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="text-muted mb-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-coin me-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"
+                        />
+                        <path
+                          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                        />
+                        <path
+                          d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                        />
+                      </svg>
+                      <span>Balance</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="mb-0 bold-text">
+                      <% if (user.balance !== 0) { %>
+                        <%- user.balance %>
+                        <span class="text-muted">( microSTX )</span>
+                      <% } else { %>
+                        <span class="text-muted">Couldn't get account balance .</span>
+                      <% } %>
+                    </p>
+                  </div>
+                </div>
+                <hr class="custom-hr" />
+
+                <!-- Owned properties -->
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="text-muted mb-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-house me-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
+                        />
+                      </svg>
+                      <span>Owned&nbsp;Properties</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="mb-0 bold-text"><%- user.ownedProperties %></p>
+                  </div>
+                </div>
+                <hr class="custom-hr" />
+
+                <!-- Stocks bought -->
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="text-muted mb-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-pie-chart me-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0V7.5h6.482A7.001 7.001 0 0 0 8.5 1.018zM14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+                        />
+                      </svg>
+                      <span>Fractions&nbsp;bought</span>
+                    </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="mb-0 bold-text">
+                      <%- user.stocksBought %>
+                      <span class="text-muted"
+                        >(&nbsp;<%- user.stocksBoughtValue.toFixed(2) %>&nbsp;(
+                        STX )&nbsp;)</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stocks Details -->
+        <div class="row container-fluid border border-1 rounded-3 mb-3 mx-aut">
+          <div class="container py-2">
+            <ul class="nav nav-pills p-3 mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="pills-home-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-home"
+                  aria-selected="true"
+                >
+                  Stocks
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-profile-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-profile"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-profile"
+                  aria-selected="false"
+                >
+                  For sale
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-home"
+                role="tabpanel"
+                aria-labelledby="pills-home-tab"
+              >
+                <% if (unlistedStocks.length > 0) { %>
+                  <% unlistedStocks.forEach((stock) => { %> 
+                    <%- include('./partials/userStockCard', { stock }) %>
+                  <% }) %>
+                <% } else { %>
+                <p class="h5 pb-3 text-muted text-center">
+                  Doesn't have any sotck .
+                </p>
+                <% } %>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-profile"
+                role="tabpanel"
+                aria-labelledby="pills-profile-tab"
+              >
+                <% if (listedStocks.length > 0) { %>
+                  <% listedStocks.forEach((stock) => { %>
+                    <%- include('./partials/userStockCardForSale', { stock }) %>
+                  <% }) %>
+                <% } else { %>
+                <p class="h5 pb-3 text-muted text-center">
+                  Doesn't have any sotck .
+                </p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

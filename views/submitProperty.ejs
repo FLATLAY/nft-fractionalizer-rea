@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/scripts/bootstrap/bootstrap.min.js" defer></script>
+    <script src="/scripts/bootstrap/jquery.js" defer></script>
+    <script src="/scripts/utilities.js" defer></script>
+    <script src="/scripts/submitProperty.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <title>New Property</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container-fluid d-flex flex-column pt-5">
+      <!-- header -->
+      <div class="row">
+        <div class="col custom-header-container">
+          <h1 class="header">New Property</h1>
+          <h3 class="sub-header">
+            Submit new property, so other people can buy stocks .
+          </h3>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div
+        class="row d-flex flex-column flex-sm-row justify-content-between align-items-center mt-5"
+      >
+        <div class="container-fluid h-custom">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-md-9 col-lg-6 col-xl-5 mb-5">
+              <!-- Property PHOTOS -->
+              <%- include('./partials/propertyImages') %>
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mb-5 px-auto">
+              <form id="submitPropertyForm">
+                <!-- Property Name input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control form-control-md"
+                    placeholder="Name of the property"
+                    name="propertyNameInput"
+                    required
+                  />
+                  <label class="form-label" for="formPropertyNameInput"
+                    >Property Name</label
+                  >
+                </div>
+
+                <!-- Property description input -->
+                <div class="form-outline form-floating mb-4">
+                  <textarea
+                    type="text"
+                    class="form-control form-control-md"
+                    placeholder="Brief description about property"
+                    name="propertyDescriptionInput"
+                    required
+                  ></textarea>
+                  <label class="form-label" for="formPropertyDescriptionInput"
+                    >Description</label
+                  >
+                </div>
+
+                <!-- Property price input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="number"
+                    min="1"
+                    class="form-control form-control-md"
+                    placeholder="Property Price"
+                    name="propertyPriceInput"
+                    required
+                  />
+                  <label class="form-label" for="formPropertyPriceInput"
+                    >Property Price</label
+                  >
+                </div>
+
+                <!-- Property stocks count input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="number"
+                    min="1"
+                    class="form-control form-control-md"
+                    placeholder="Property Fractions"
+                    name="propertyFractionsInput"
+                    required
+                  />
+                  <label class="form-label" for="formPropertyStocksInput"
+                    >Fractions</label
+                  >
+                </div>
+
+                <!-- Property info input -->
+                <div class="form-outline mb-4">
+                  <label class="text-muted pb-1" for="formPropertyInfoInput"
+                    >Property INFO</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control form-control-md"
+                    placeholder="Property information"
+                    accept=".json"
+                    name="propertyInfoInput"
+                    required
+                  />
+                </div>
+
+                <!-- Property images input -->
+                <div class="form-outline mb-4">
+                  <label class="text-muted pb-1" for="formPropertyImagesInput"
+                    >Property Images</label
+                  >
+                  <input
+                    type="file"
+                    id="formPropertyImagesInput"
+                    class="form-control form-control-md"
+                    placeholder="Property information"
+                    multiple
+                    accept="image/*"
+                    required
+                  />
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-md"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem"
+                  >
+                    Submit Property
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

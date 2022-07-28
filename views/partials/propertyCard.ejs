@@ -1,0 +1,20 @@
+<div class="col"">
+  <div class="card card-blog">
+    <div class="card-image">
+      <img class="img" src="<%- thumbnail %>" style="width: 100%; height: 200px" />
+      <div class="ripple-cont"></div>
+    </div>
+    <div class="table">
+      <h4 class="card-caption pt-3">
+        <a href="/properties/<%- id %>"><%- name %></a>
+      </h4>
+      <p class="card-description pt-2 market-card-body" style="height: 150px">
+        <%- description %>
+      </p>
+      <hr />
+      <p class="badge rounded-pill bg-danger p-2 d-flex justify-content-center">
+        <%- price %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/property_card.css" />
+    <script src="/scripts/bootstrap/bootstrap.min.js" defer></script>
+    <script src="/scripts/bootstrap/jquery.js" defer></script>
+    <script src="/scripts/marketplace.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <title>Marketplace</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container-fluid d-flex flex-column pt-5">
+      <!-- header -->
+      <div class="row">
+        <div class="col custom-header-container">
+          <h1 class="header">Marketplace</h1>
+          <h3 class="sub-header">Browse properties .</h3>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div
+        class="row d-flex flex-column justify-content-center align-items-center px-5"
+      >
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-4 gy-5 my-5" style="height: 300px">
+          <% properties.forEach((property) => { %>
+            <%- include('./partials/propertyCard', {  id: property._id, name: property.name, description: property.description, price: property.price + ' STX ', thumbnail: property.images[0].image }) %>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

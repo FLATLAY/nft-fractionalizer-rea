@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/scripts/bootstrap/bootstrap.min.js" defer></script>
+    <script src="/scripts/bootstrap/jquery.js" defer></script>
+    <script src="/scripts/utilities.js" defer></script>
+    <script src="/scripts/register.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <title>Register</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container-fluid d-flex flex-column pt-5">
+      <!-- header -->
+      <div class="row">
+        <div class="col custom-header-container">
+          <h1 class="header">Register</h1>
+          <h3 class="sub-header">
+            Create a free account to use Fractionalizer .
+          </h3>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div
+        class="row d-flex flex-column flex-sm-row justify-content-between align-items-center mt-5"
+      >
+        <div class="container-fluid h-custom">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img
+                src="/images/register_login.webp"
+                class="img-fluid"
+                alt="Sample image"
+              />
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mb-5 px-auto">
+              <form id="registerForm">
+                <!-- Full Name input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="text"
+                    id="formFullNameInput"
+                    class="form-control form-control-md"
+                    placeholder="Enter your full name"
+                    name="fullnameInput"
+                  />
+                  <label class="form-label" for="formFullNameInput"
+                    >Full Name</label
+                  >
+                </div>
+
+                <!-- Username input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="text"
+                    id="formUsernameInput"
+                    class="form-control form-control-md"
+                    placeholder="Enter a valid username"
+                    name="usernameInput"
+                  />
+                  <label class="form-label" for="formUsernameInput"
+                    >Username</label
+                  >
+                </div>
+
+                <!-- Principal input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="text"
+                    id="formPrincipalInput"
+                    class="form-control form-control-md"
+                    placeholder="Enter Address"
+                    name="STXAddressInput"
+                  />
+                  <label class="form-label" for="formPrincipalInput"
+                    >STX Address</label
+                  >
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline form-floating mb-4">
+                  <input
+                    type="password"
+                    id="formPasswordInput"
+                    class="form-control form-control-md"
+                    placeholder="Enter password"
+                    name="passwordInput"
+                  />
+                  <label class="form-label" for="formPasswordInput"
+                    >Password</label
+                  >
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-md"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem"
+                    name="registerButton"
+                  >
+                    Register
+                  </button>
+                  <p class="small fw-bold my-3 pt-1">
+                    Already registered ?
+                    <a href="/authentication/login" class="link-danger"
+                      >Login</a
+                    >
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/user_stocks_card.css" />
+    <script src="/scripts/bootstrap/bootstrap.min.js" defer></script>
+    <script src="/scripts/bootstrap/jquery.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <title>Requests</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container-fluid d-flex flex-column pt-5">
+      <!-- header -->
+      <div class="row">
+        <div class="col custom-header-container">
+          <h1 class="header">Requests</h1>
+          <h3 class="sub-header">Your requests will be shown here .</h3>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div class="row custom-header-container px-5">
+
+        <!-- Stocks Details -->
+        <div class="row container-fluid border border-1 rounded-3 mb-3 mx-aut">
+          <div class="container py-2">
+            <ul class="nav nav-pills p-3 mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pending</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <% if (allRequests.length > 0) { %>
+                  <% allRequests.forEach((request) => { %>
+                  <%- include('./partials/requestCard', { request }) %> <% }) %>
+                <% } else { %>
+                  <p class="h5 pb-3 text-muted text-center">Doesn't have any requset .</p>
+                <% } %>
+              </div>
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <% if (pendingRequests.length > 0) { %>
+                  <% pendingRequests.forEach((request) => { %>
+                  <%- include('./partials/requestCard', { request }) %> <% }) %>
+                <% } else { %>
+                  <p class="h5 pb-3 text-muted text-center">Doesn't have any pending request .</p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

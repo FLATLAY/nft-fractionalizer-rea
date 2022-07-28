@@ -1,0 +1,288 @@
+.section-cards {
+  z-index: 3;
+  position: relative;
+}
+
+.section-gray {
+  background: #E5E5E5;
+  padding: 60px 0 30px 0;
+}
+
+
+/*---------------------------------------------------------------------- /
+CARDS
+----------------------------------------------------------------------- */
+
+.card {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card .card-image {
+  height: 60%;
+  position: relative;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: -30px;
+  border-radius: 6px;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.card .card-image .card-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: #fff;
+  font-size: 1.3em;
+  text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.img-raised {
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card .ftr {
+  margin-top: 15px;
+}
+
+.card .ftr div {
+  display: inline-block;
+}
+
+.card .ftr .author {
+  color: #888;
+}
+
+.card .ftr .stats {
+  float: right;
+  line-height: 30px;
+}
+
+.card .ftr .stats {
+  position: relative;
+  top: 1px;
+  font-size: 14px;
+}
+
+
+/* ============ Card Table ============ */
+
+.table {
+  margin-bottom: 0px;
+}
+
+.card .table {
+  padding: 15px 30px;
+}
+
+.card .table-primary {
+  background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+}
+
+.card .table-info {
+  background: linear-gradient(60deg, #26c6da, #0097a7);
+}
+
+.card .table-success {
+  background: linear-gradient(60deg, #66bb6a, #388e3c);
+}
+
+.card .table-warning {
+  background: linear-gradient(60deg, #ffa726, #f57c00);
+}
+
+.card .table-danger {
+  background: linear-gradient(60deg, #ef5350, #d32f2f);
+}
+
+.card .table-rose {
+  background: linear-gradient(60deg, #ec407a, #c2185b);
+}
+
+.card [class*="table-"] {
+  color: #FFFFFF;
+  border-radius: 6px;
+}
+
+.card [class*="table-"] .card-caption a,
+.card [class*="table-"] .card-caption,
+.card [class*="table-"] .icon i {
+  color: #FFFFFF;
+}
+
+.card [class*="table-"] .icon i {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.card [class*="table-"] .author a,
+.card [class*="table-"] .ftr .stats,
+.card [class*="table-"] .category,
+.card [class*="table-"] .card-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card [class*="table-"] .author a:hover,
+.card [class*="table-"] .author a:focus,
+.card [class*="table-"] .author a:active {
+  color: #FFFFFF;
+}
+
+.card [class*="table-"] h1 small,
+.card [class*="table-"] h2 small,
+.card [class*="table-"] h3 small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============ Card Background ============ */
+
+.card-background {
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.card-background .table {
+  position: relative;
+  z-index: 2;
+  min-height: 280px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.card-background .category,
+.card-background .card-description,
+.card-background small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card-background .card-caption {
+  color: #FFFFFF;
+  margin-top: 10px;
+}
+
+.card-background:after {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  table: "";
+  background-color: rgba(0, 0, 0, 0.56);
+  border-radius: 6px;
+}
+
+
+/* ============ Card Profile ============ */
+
+.card-profile {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* ============ Card Product ============ */
+
+.card-product {
+  margin-top: 30px;
+}
+
+.card-product .btn-simple.btn-just-icon {
+  padding: 0;
+}
+
+.card-product .ftr {
+  margin-top: 5px;
+}
+
+.card-product .ftr .stats {
+  margin-top: 4px;
+  top: 0;
+}
+
+.card-product .ftr h4 {
+  margin-bottom: 0;
+}
+
+.card-product .card-caption,
+.card-product .category,
+.card-product .card-description {
+  text-align: center;
+}
+
+.card-description p {
+  color: #888;
+}
+
+.card-caption,
+.card-caption a {
+  color: #333;
+  text-decoration: none;
+}
+
+.card-caption {
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+/* ============ Text Color ============ */
+
+.text-warning {
+  color: #ff9800;
+}
+
+.text-primary {
+  color: #9c27b0;
+}
+
+.text-danger {
+  color: #f44336;
+}
+
+.text-success {
+  color: #4caf50;
+}
+
+.text-info {
+  color: #00bcd4;
+}
+
+.text-rose {
+  color: #e91e63;
+}
+
+.text-gray {
+  color: #888;
+}
+
+/*---------------------------------------------------------------------- /
+BOOTSTRAP COL-MD-12 CLASS
+----------------------------------------------------------------------- */
+
+.col-md-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}

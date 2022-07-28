@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lobster+Two&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --profile-actions-icon-color: #9da7ba;
+  --profile-actions-icon-active-color: #674add;
+  --profile-actions-icon-active-background: #edecfa;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* FONTS */
+.lobster-font {
+  font-family: 'Lobster Two', sans-serif;
+}
+
+.bold-text {
+  font-weight: 600;
+}
+
+/* CUSTOM CONTAINERS  */
+.custom-container {
+  width: 100vw;
+}
+
+.custom-header-container {
+  padding-top: 2rem;
+  padding-left: 2rem;
+  margin-top: 2rem;
+}
+
+.custom-img-container {
+  width: 75%;
+}
+
+/* HEADERS */
+.header {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.sub-header {
+  font-size: 1.1rem;
+  font-weight: 350;
+}
+
+/* PROFILE */
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+.custom-card {
+  border: 0px;
+}
+
+.profile-actions-icon {
+  color: var(--profile-actions-icon-color);
+  border: 5px solid transparent;
+  border-radius: 30%;
+  padding: 1rem;
+}
+
+.profile-actions-icon:hover {
+  color: var(--profile-actions-icon-active-color);
+  background-color: var(--profile-actions-icon-active-background);
+
+}
+
+/* CUSTOM HR */
+
+.custom-hr {
+  color: black;
+  margin: 1.25rem 0;
+}
+
+/* CUSTOM LINKS */
+.custom-link {
+  color: black;
+  text-decoration: none;
+}
+
+.custom-link:visited {
+  color: black
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+
+  .header {
+    font-size: 2.25rem;
+    font-weight: 700;
+  }
+  
+  .sub-header {
+    font-size: 1.2rem;
+    font-weight: 350;
+  }
+
+  .custom-img-container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .custom-img-container {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .custom-img-container {
+    width: 30%;
+  }
+}

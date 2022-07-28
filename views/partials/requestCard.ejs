@@ -1,0 +1,31 @@
+<article class="postcard light red">
+  <div class="postcard__text t-dark">
+    <h1 class="postcard__title red">
+      <span href="">
+        <% if (request.type === 'submitProperty') { %>
+          <%- 'Submit Property' %>
+        <% } else if (request.type === 'listFractions') { %>
+          <%- 'List Fractions' %> 
+        <% } else if (request.type === 'unlistFractions') { %> 
+          <%- 'Unlist Fractions' %>
+        <% } else { %>
+          <%- 'Purchase Fractions' %>
+        <% }%>
+      </span>
+    </h1>
+    <div class="postcard__subtitle small"></div>
+    <div class="postcard__bar"></div>
+    <div class="postcard__preview-txt d-flex flex-column">
+      <div class="row pt-2">
+        <div class="col col-lg-9">
+          <div class="row">
+            <%- include('./requestCardRow', { title: 'State', value: request.status }) %>
+            <%- include('./requestCardRow', { title: 'Description', value: request.description }) %>
+            <%- include('./requestCardRow', { title: 'Address' , value: request.address }) %>
+            <%- include('./requestCardRow', { title: 'Created on', value: request.createdOn }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

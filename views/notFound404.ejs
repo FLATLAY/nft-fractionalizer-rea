@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/scripts/bootstrap/bootstrap.min.js" defer></script>
+    <script src="/scripts/bootstrap/jquery.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <title>Not Found</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar') %>
+
+    <div class="container-fluid d-flex flex-column pt-5">
+      <!-- header -->
+      <div class="row">
+        <div class="col custom-header-container">
+          <h1 class="header">404</h1>
+          <h3 class="sub-header">Page not found .</h3>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div
+        class="row d-flex flex-column justify-content-center align-items-center mt-5"
+      >
+        <img
+          src="/images/404_notFound.webp"
+          alt="Home"
+          class="rounded mx-auto d-block custom-img-container"
+        />
+        <a
+          class="btn btn-primary col-6 col-md-5 col-lg-4 col-xl-3 mt-5"
+          type="button"
+          href="/marketplace"
+        >
+          Return to Marketplace
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
